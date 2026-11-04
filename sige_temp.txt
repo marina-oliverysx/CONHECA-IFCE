@@ -1,2 +1,2 @@
-?? moon.vbs
-?? sige_temp.txt
+ M sige_temp.txt
+?? "BORA QUE BORA!!/"
