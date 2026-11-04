@@ -1,13 +1,13 @@
 node_modules
 # Keep environment variables out of version control
-.env
+#.env
 
-/src/generated/prisma
+#/src/generated/prisma
 
 # Local server control state and logs
-.conheca-ifce-server.pid
-.conheca-ifce-start.ps1
-.conheca-ifce-find-server.ps1
-.conheca-ifce-control.log
-.conheca-ifce-server.log
-.conheca-ifce-error.log
+#.conheca-ifce-server.pid
+#.conheca-ifce-start.ps1
+#.conheca-ifce-find-server.ps1
+#.conheca-ifce-control.log
+#.conheca-ifce-server.log
+#.conheca-ifce-error.log
