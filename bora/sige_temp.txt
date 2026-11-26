@@ -1,0 +1,26 @@
+ D "BORA QUE BORA!!/.env"
+ D "BORA QUE BORA!!/.gitignore"
+ D "BORA QUE BORA!!/docker-compose.yml"
+ D "BORA QUE BORA!!/moon.vbs"
+ D "BORA QUE BORA!!/package-lock.json"
+ D "BORA QUE BORA!!/package.json"
+ D "BORA QUE BORA!!/prisma/migrations/seed.ts"
+ D "BORA QUE BORA!!/prisma/schema.prisma"
+ D "BORA QUE BORA!!/prisma7.config.ts"
+ D "BORA QUE BORA!!/src/app.ts"
+ D "BORA QUE BORA!!/src/generated/prisma/browser.ts"
+ D "BORA QUE BORA!!/src/generated/prisma/client.ts"
+ D "BORA QUE BORA!!/src/generated/prisma/commonInputTypes.ts"
+ D "BORA QUE BORA!!/src/generated/prisma/enums.ts"
+ D "BORA QUE BORA!!/src/generated/prisma/internal/class.ts"
+ D "BORA QUE BORA!!/src/generated/prisma/internal/prismaNamespace.ts"
+ D "BORA QUE BORA!!/src/generated/prisma/internal/prismaNamespaceBrowser.ts"
+ D "BORA QUE BORA!!/src/generated/prisma/models.ts"
+ D "BORA QUE BORA!!/src/generated/prisma/models/User.ts"
+ D "BORA QUE BORA!!/src/lib/prisma.ts"
+ D "BORA QUE BORA!!/src/server.ts"
+ D "BORA QUE BORA!!/tsconfig.json"
+ D README.md
+ D moon.vbs
+ D sige_temp.txt
+?? bora/
