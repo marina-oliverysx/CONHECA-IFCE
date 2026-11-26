@@ -1,4 +1,0 @@
- M "BORA QUE BORA!!/.gitignore"
- M sige_temp.txt
-?? "BORA QUE BORA!!/.env"
-?? "BORA QUE BORA!!/src/generated/"

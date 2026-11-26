@@ -1,0 +1,144 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserRole {
+  ADMIN
+  MEMBER
+  VISITOR
+}
+
+enum StatusPublication {
+  NEWS
+  EVENT
+}
+
+enum PublicationType {
+  DRAFT
+  PUBLISHED
+}
+
+enum ChatMensagenStatus {
+  ACTIVE
+  REMOVED
+}
+
+enum StatusContato {
+  NO_READ
+  READ
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  role      UserRole @default(VISITOR)
+  createdAt DateTime @default(now())
+
+  mensagens   ChatMensagen[]
+  loginTokens EmailLoginToken[]
+  sessions    UserSession[]
+}
+
+model EmailLoginToken {
+  id        Int       @id @default(autoincrement())
+  tokenHash String    @unique
+  userId    Int
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, expiresAt])
+}
+
+model UserSession {
+  id        Int       @id @default(autoincrement())
+  tokenHash String    @unique
+  userId    Int
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, expiresAt])
+}
+
+model Curso {
+  id        Int      @id @default(autoincrement())
+  name      String
+  type      String
+  modality  String
+  duration  Int
+  createdAt DateTime @default(now())
+}
+
+model PaginaInstitucional {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  slug      String   @unique
+  createdAt DateTime @default(now())
+  updatedat DateTime @updatedAt
+}
+
+model ImagemGaleria {
+  id        Int      @id @default(autoincrement())
+  file      String
+  caption   String
+  category  String
+  createdAt DateTime @default(now())
+
+  mensagem     StatusPublication[]
+  publications Publication[]
+}
+
+model Publication {
+  id            Int               @id @default(autoincrement())
+  title         String
+  summary       String
+  category      String
+  status        StatusPublication @default(NEWS)
+  type          PublicationType   @default(DRAFT)
+  timepublished DateTime?
+
+  imagemId Int?
+  imagem   ImagemGaleria? @relation(fields: [imagemId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedat DateTime @updatedAt
+}
+
+model mensagemContact {
+  id        Int                @id @default(autoincrement())
+  nome      String
+  email     String
+  subject   String
+  message   String
+  status    ChatMensagenStatus @default(ACTIVE)
+  createdAt DateTime           @default(now())
+}
+
+model ChatMensagen {
+  id        Int                @id @default(autoincrement())
+  content   String
+  autorID   Int
+  status    ChatMensagenStatus @default(ACTIVE)
+  createdAt DateTime           @default(now())
+
+  autor User @relation(fields: [autorID], references: [id])
+
+  @@index([autorID])
+}
